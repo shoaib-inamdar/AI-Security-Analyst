@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# uv — commit pyproject.toml and uv.lock, never .venv
+.venv/
+
+# Secrets — NEVER commit
+.env
+
+# Node.js
+frontend/node_modules/
+frontend/.next/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Scanner artifacts (generated)
+*.sarif
+tests/test_scanners/*.json
+tests/test_scanners/*.sarif

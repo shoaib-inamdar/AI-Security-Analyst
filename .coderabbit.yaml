@@ -1,0 +1,11 @@
+language: "en-US"
+reviews:
+  profile: "chill"
+  high_level_summary: true
+  review_status: true
+  auto_review:
+    enabled: true
+    base_branches:
+      - main
+chat:
+  auto_reply: true
