@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from observability.langfuse_setup import setup_langfuse
+from prometheus_client import make_asgi_app
 
 app = FastAPI(
     title="AI Security Analyst Platform",
@@ -11,6 +13,10 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
+metrics_app=make_asgi_app()
+app.mount("/metrics",metrics_app)
+
+setup_langfuse()
 
 app.add_middleware(
     CORSMiddleware,

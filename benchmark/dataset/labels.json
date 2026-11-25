@@ -1,0 +1,84 @@
+{
+    "version":"1.0",
+    "created":"2025-11-22",
+    "description":"Ground truth labels for AI Security Analyst benchmark dataset",
+    "samples":[
+        {
+            "id":"sqli_001",
+            "file":"samples/sqli_001.py",
+            "vulnerability_type":"SQL Injection",
+            "cwe":"CWE-89",
+            "severity":"high",
+            "vulnerable_lines":[8,9],
+            "description":"User input directly cancatenated into SQL query via % formatting",
+            "expected_scanner":["semgrep","bandit"],
+            "is_false_positive":false
+        },
+        {
+            "id":"sqli_002",
+            "file":"samples/sqli_002.py",
+            "vulnerability_type":"SQL Injection",
+            "cwe":"CWE-89",
+            "severity":"high",
+            "vulnerable_lines":[12],
+            "description":"f-string used to build SQL query with user-controlled variable",
+            "expected_scanner":["semgrep"],
+            "is_false_positive":false
+        },
+        {
+            "id":"hardcoded_secret_001",
+            "file":"samples/hardcoded_secret_001.py",
+            "vulnerability_type":"Hardcoded Credentials",
+            "cwe":"CWE-798",
+            "severity":"critical",
+            "vulnerable_lines":[3,4,5],
+            "description":"AWS access key and secret hardcoded in source file",
+            "expected_scanner":["semgrep","bandit"],
+            "is_false_positive":false
+        },
+        {
+            "id": "weak_crypto_001",
+            "file": "samples/weak_crypto_001.py",
+            "vulnerability_type": "Use of Weak Hash",
+            "cwe": "CWE-327",
+            "severity": "medium",
+            "vulnerable_lines": [6],
+            "description": "MD5 used for password hashing — cryptographically broken",
+            "expected_scanner": ["bandit"],
+            "is_false_positive": false
+        },
+        {
+            "id": "path_traversal_001",
+            "file": "samples/path_traversal_001.py",
+            "vulnerability_type": "Path Traversal",
+            "cwe": "CWE-22",
+            "severity": "high",
+            "vulnerable_lines": [11, 12],
+            "description": "User-controlled filename used in file open without sanitization",
+            "expected_scanner": ["semgrep"],
+            "is_false_positive": false
+        },
+        {
+            "id": "command_injection_001",
+            "file": "samples/command_injection_001.py",
+            "vulnerability_type": "Command Injection",
+            "cwe": "CWE-78",
+            "severity": "critical",
+            "vulnerable_lines": [9],
+            "description": "os.system() called with user input — allows shell command injection",
+            "expected_scanner": ["bandit", "semgrep"],
+            "is_false_positive": false
+        },
+        {
+            "id": "fp_001",
+            "file": "samples/fp_001.py",
+            "vulnerability_type": "SQL Injection",
+            "cwe": "CWE-89",
+            "severity": "high",
+            "vulnerable_lines": [],
+            "description": "Safe parameterized query — scanner should NOT flag this (FP test)",
+            "expected_scanner": [],
+            "is_false_positive": true
+        }
+    ]
+}

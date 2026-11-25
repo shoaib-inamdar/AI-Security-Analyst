@@ -21,3 +21,6 @@ langgraph
 langsmith
 semgrep
 bandit
+langfuse
+prometheus-client
+locust
